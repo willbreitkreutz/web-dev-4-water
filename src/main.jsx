@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./css/bootstrap/css/bootstrap.vapor.min.css";
+import "./css/bootstrap/css/bootstrap.superhero.min.css";
 import "./css/loaders.css";
 import "./css/index.css";
 

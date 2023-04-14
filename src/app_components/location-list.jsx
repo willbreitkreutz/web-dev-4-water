@@ -19,7 +19,7 @@ function LocationListItem({ loc, officeName }) {
 function LocationList({ routeParams }) {
   const [searchString, setSearchString] = useState("");
   const locations = useCDA(
-    `https://cwms-data.usace.army.mil/cwms-data/locations?office=${routeParams.officeName}&format=json`
+    `https://cwms-data.usace.army.mil/cwms-data/locations?office=${routeParams.officeName}`
   );
   if (!locations) return <Loader />;
   const filterMatcher = new RegExp(searchString, "ig");

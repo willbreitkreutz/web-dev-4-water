@@ -11,7 +11,7 @@ function LocationTSList({ location, routeParams }) {
   return (
     <div>
       <hr />
-      <h3>Timeseries for {location.name}</h3>
+      <h3>Timeseries</h3>
       <ul className="list-group">
         {timeseries.entries.map((ts) => {
           return (
@@ -28,7 +28,6 @@ function LocationTSList({ location, routeParams }) {
           );
         })}
       </ul>
-      <pre>{JSON.stringify(timeseries, null, 2)}</pre>
     </div>
   );
 }

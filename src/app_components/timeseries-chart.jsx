@@ -9,7 +9,6 @@ function TSChart({ timeseries }) {
 
   useEffect(() => {
     if (chartId.current !== null) {
-      console.log(chartId.current);
       return;
     }
     const chart = new Chart(chartRef.current, {

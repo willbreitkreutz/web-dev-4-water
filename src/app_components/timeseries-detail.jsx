@@ -9,11 +9,13 @@ function TimeseriesDetail({ routeParams }) {
     )}&office=${routeParams.officeName}`
   );
   if (!timeseries) return <Loader />;
+  const meta = { ...timeseries };
+  delete meta.values;
   return (
     <div>
       <h2>{timeseries.name}</h2>
       <TSChart timeseries={timeseries} />
-      <pre>{JSON.stringify(timeseries, null, 2)}</pre>
+      <pre>{JSON.stringify(meta, null, 2)}</pre>
     </div>
   );
 }
