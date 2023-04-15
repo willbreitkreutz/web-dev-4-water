@@ -6,7 +6,9 @@ function LocationListItem({ loc, officeName }) {
   return (
     <a
       className="list-group-item list-group-item-action mb-1"
-      href={`/office/${officeName}/location/${window.btoa(loc.identity.name)}`}
+      href={`/#/office/${officeName}/location/${window.btoa(
+        loc.identity.name
+      )}`}
     >
       {`${loc.identity.name}`}
       <span className="badge bg-info float-end">

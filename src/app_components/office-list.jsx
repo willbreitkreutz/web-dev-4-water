@@ -6,7 +6,7 @@ import Loader from "./loader";
 function OfficeListItem({ item }) {
   return (
     <a
-      href={`/office/${item.name}`}
+      href={`/#/office/${item.name}`}
       className="list-group-item list-group-item-action mb-1"
     >
       {item["long-name"]}

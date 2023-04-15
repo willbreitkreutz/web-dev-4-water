@@ -5,10 +5,13 @@ import LocationList from "./app_components/location-list";
 import LocationDetail from "./app_components/location-detail";
 import TimeseriesDetail from "./app_components/timeseries-detail";
 
+const origin = window.location.origin;
+
 export default featherRouteMatcher({
-  "/": OfficeList,
-  "/office/:officeName": LocationList,
-  "/office/:officeName/location/:locationId": LocationDetail,
-  "/office/:officeName/location/:locationId/ts/:tsName": TimeseriesDetail,
+  [`${origin}/`]: OfficeList,
+  [`${origin}/#/office/:officeName`]: LocationList,
+  [`${origin}/#/office/:officeName/location/:locationId`]: LocationDetail,
+  [`${origin}/#/office/:officeName/location/:locationId/ts/:tsName`]:
+    TimeseriesDetail,
   "*": NotFound,
 });
