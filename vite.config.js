@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: "https://willbreitkreutz.github.io/web-dev-4-water/",
+  base: "https://wd4w.demoapps.page/",
   plugins: [react()],
 });
