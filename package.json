@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && git add --all && git commit -m 'add dist' && say done",
     "preview": "vite preview"
   },
   "dependencies": {
