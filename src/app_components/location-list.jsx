@@ -6,14 +6,19 @@ function LocationListItem({ loc, officeName }) {
   return (
     <a
       className="list-group-item list-group-item-action mb-1"
-      href={`/#/office/${officeName}/location/${window.btoa(
-        loc.identity.name
-      )}`}
+      href={`/#/office/${officeName}/location/${window.btoa(loc.name)}`}
     >
-      {`${loc.identity.name}`}
-      <span className="badge bg-info float-end">
-        {loc.classification["location-type"]}
-      </span>
+      {`${loc.name}`}
+      <div className="float-end">
+        <span className="badge bg-info">{loc.kind}</span>
+        <span
+          className={["badge", loc.active ? "bg-success" : "bg-warning"].join(
+            " "
+          )}
+        >
+          {loc.active ? "ACTIVE" : "INACTIVE"}
+        </span>
+      </div>
     </a>
   );
 }
@@ -21,7 +26,7 @@ function LocationListItem({ loc, officeName }) {
 function LocationList({ routeParams }) {
   const [searchString, setSearchString] = useState("");
   const locations = useCDA(
-    `https://cwms-data.usace.army.mil/cwms-data/locations?office=${routeParams.officeName}`
+    `https://cwms-data.usace.army.mil/cwms-data/catalog/LOCATIONS?office=${routeParams.officeName}`
   );
   if (!locations) return <Loader />;
   const filterMatcher = new RegExp(searchString, "ig");
@@ -38,11 +43,9 @@ function LocationList({ routeParams }) {
       ></input>
 
       <ul className="list-group">
-        {locations.locations.locations
+        {locations.entries
           .filter((loc) => {
-            return filterMatcher.test(
-              `${loc.identity.name} ${loc.classification["location-type"]}`
-            );
+            return filterMatcher.test(`${loc.name} ${loc.kind}`);
           })
           .map((loc, i) => {
             return (
