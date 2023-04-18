@@ -1,11 +1,11 @@
 {
   "name": "web-dev-4-water",
   "private": true,
-  "version": "0.2.2",
+  "version": "0.2.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && git add --all && git commit -m 'add dist' && say done",
+    "build": "vite build && git add --all && git commit -m 'add dist'",
     "preview": "vite preview"
   },
   "dependencies": {
